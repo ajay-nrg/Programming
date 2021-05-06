@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            function show(val) {
+                console.log(val);
+            }
+            async function myFunc() {
+                return "Hello";
+            }
+            myFunc().then(
+                function(val){show(val);}
+            );
+            
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="" ng-init="qty=30;cost=20;names=['A','B','C']">
+            Quantity: <input type="number" ng-model="qty"><br>
+            Cost:     <input type="number" ng-model="cost"><br>
+            Total Price is: {{qty*cost}}
+            <br>
+
+            <ul>
+                <li ng-repeat="x in names">
+                    {{ x }}
+                </li>
+            </ul>
+        </div>
+
+        <div ng-app="" ng-init="">
+            
+        </div>
+    </body>
+</html>

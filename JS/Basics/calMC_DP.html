@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            let c = [[0, 10, 75, 94],
+                    [-1, 0, 35, 50],
+                    [-1, -1, 0, 80],
+                    [-1, -1, -1, 0]]
+            var mc,temp;
+            function calMC(s,d) {
+                mc = c[s][d];
+                for(i=s+1;i<d;i++){
+                    temp = c[s][i]+c[i][d];
+                    if(temp<mc)
+                        mc = temp;
+                }
+                return mc;
+            }
+            console.log(calMC(0,2));
+        </script>
+    </head>
+    <body>
+        <h1>Calculate Minimimum cost using DP (bottom-up approach)</h1>
+    </body>
+</html>

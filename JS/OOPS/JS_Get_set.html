@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            class Car{
+                constructor(_name,_brand){
+                    this.name = _name;
+                    this.brand = _brand;
+                }
+                get carname(){
+                    return this.name;
+                }
+                set carname(x){
+                    this.name = x;
+                }
+            }
+            var car = new Car("Volvo");
+            console.log(car.carname= "Jeep");
+        </script>
+    </head>
+    <body>
+        <h4>
+            Using an underscore character is common practice when 
+            using getters/setters in JavaScript, but not mandatory,
+             you can name them anything you like, but not the same 
+             as the property name.
+        </h4>
+    </body>
+</html>

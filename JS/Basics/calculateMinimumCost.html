@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            var m = new Array(5);
+
+            for(i=0;i<5;i++)
+                m[i] = new Array(5);
+
+            for(i=0;i<5;i++)
+                for(j=0;j<5;j++)
+                    m[i][j] = 0;
+
+            var c = [[0, 10, 75, 94],
+                    [-1, 0, 35, 50],
+                    [-1, -1, 0, 80],
+                    [-1, -1, -1, 0]]
+            var mc,temp;
+            function calMC(s,d) {
+                if(s==d || d==s+1)
+                    return c[s][d];
+                if(m[s][d] == 0){
+                    mc = c[s][d];
+                    for(i=s+1;i<d;i++){
+                        temp = calMC(s,i) + calMC(i,d);
+                        if(temp<mc)
+                            mc = temp;                   
+                    }
+                    m[s][d] = mc;
+                }
+                return m[s][d];
+            }
+            
+            console.log(calMC(0,3));
+        </script>
+    </head>
+    <body>
+        <h1>Calculating Minimum cost using Memorization (top-down approach)</h1>
+    </body>
+</html>

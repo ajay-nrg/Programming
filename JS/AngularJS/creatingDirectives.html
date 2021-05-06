@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="myApp" >
+            <!-- You can invoke a directive by using:
+                -Element name
+                -Attribute
+                -Class
+                -Comment -->
+            <w3-test-directive></w3-test-directive>
+            <div w3-test-directive></div>
+            <div class="w3-test-directive"></div>
+            <!-- directive: w3-test-directive -->
+        </div>
+        <script>
+            // When naming a directive, you must use a camel case name
+            // , w3TestDirective, but when invoking it, you must use 
+            // - separated name, w3-test-directive:
+            var app = angular.module("myApp",[]);
+            app.directive("w3TestDirective",function(){
+                return {
+                    // You must add the value "C" to the restrict property
+                    // to be able to invoke the directive from a class name.
+                    restrict: "ECAM",
+                    // You can restrict your directives to only be invoked by some of the methods.
+                    template: "<h1>Made by a directive!</h1>"
+                };
+            });
+        </script>
+    </body>
+</html>
