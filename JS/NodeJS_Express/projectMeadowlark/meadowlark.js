@@ -8,6 +8,12 @@ const handlers = require('./lib/handlers');
 // configure Handlebars view engine
 app.engine('handlebars',expressHandlebars({
     defaultLayout: 'main',
+    helpers: {
+        section: function(name,options){
+            if(!this._sections) this._sections = {};
+            this._sections[name] = options.fn(this);
+        },
+    },
 }));
 app.set('view engine','handlebars');
 
@@ -21,7 +27,9 @@ app.get('/headers',(req,res)=>{
     .map(([key,val])=>`${key}: ${val}`);
     res.send(headers.join('\n'));
 })
-
+app.get('/newsletter-signup', handlers.newsletterSignup)
+app.post('/newsletter-signup/process', handlers.newsletterSignupProcess)
+app.get('/newsletter-signup/thank-you', handlers.newsletterSignupThankYou)
 //custom 404 page
 // If we put the 404 handler above
 // the routes, the home page and About page would stop working; instead,
